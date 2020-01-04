@@ -1,4 +1,5 @@
-﻿<p align="center">
+﻿
+<p align="center">
   <a href="https://dev.azure.com/evotecpl/PSDevSummary/_build/latest?definitionId=3"><img src="https://dev.azure.com/evotecpl/PSDevSummary/_apis/build/status/EvotecIT.PSDevSummary"></a>
   <a href="https://www.powershellgallery.com/packages/PSDevSummary"><img src="https://img.shields.io/powershellgallery/v/PSDevSummary.svg"></a>
   <a href="https://www.powershellgallery.com/packages/PSDevSummary"><img src="https://img.shields.io/powershellgallery/vpre/PSDevSummary.svg?label=powershell%20gallery%20preview&colorB=yellow"></a>
