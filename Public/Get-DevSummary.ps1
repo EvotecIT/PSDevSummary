@@ -7,7 +7,7 @@
         [string] $PathGitHub = "$Env:USERPROFILE\Desktop\GitHubModules.xml",
         [string] $PathModulesHTML = "$Env:USERPROFILE\Desktop\MyModules.HTML",
         [switch] $UseCache,
-        [switch] $UseUrlInName,
+        [switch] $UseHTMLLinks,
         [switch] $UseUrlMarkdown,
         [switch] $ReturnDetails
     )
@@ -72,12 +72,16 @@
             }
         }
         $GitHubProject = $GitHubModules[$_.ProjectUri] | Select-Object full_name, Name, Stargazers_Count, forks_count, Open_issues, license, Language, HTML_URL, Fork, Created_At, Updated_At, Pushed_At, Archived
-        if ($UseUrlInName) {
+        if ($UseHTMLLinks) {
             $Name = "<a href='$($_.ProjectUri)'>$($_.Name)</a>"
+            $PSGalleryURL = "<a href='https://www.powershellgallery.com/packages/$($_.Name)'>https://www.powershellgallery.com/packages/$($_.Name)</a>"
+            $GitHubURL = "<a href='$($_.ProjectUri)'>$($_.ProjectUri)</a>"
         } elseif ($UseUrlMarkdown) {
             $Name = "[$($_.Name)]($($_.ProjectUri))"
         } else {
             $Name = $_.Name
+            $PSGalleryURL = "https://www.powershellgallery.com/packages/$($_.Name)"
+            $GitHubURL = $_.ProjectUri
         }
         $Object = [ordered] @{
             'Name'                                  = $Name
@@ -98,8 +102,8 @@
             "Releases LastYear ($LastYear)"         = $ModuleLastYear.Count
             "Releases PreviousYear ($PreviousYear)" = $ModulePreviousYear.Count
             'Last Updated'                          = $_.AdditionalMetadata.published
-            'PS Gallery Uri'                        = "https://www.powershellgallery.com/packages/$($_.Name)"
-            'Projet Uri'                            = $_.ProjectUri
+            'PS Gallery Url'                        = $PSGalleryURL
+            #'Project Url'                           = $GitHubURL
             'Description'                           = $_.Description
         }
         if ($ReturnDetails) {

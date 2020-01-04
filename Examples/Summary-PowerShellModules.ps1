@@ -6,7 +6,7 @@ Set-GitHubConfiguration -DisableTelemetry
 Set-GitHubConfiguration -AssemblyPath "$($Env:UserProfile)\.githubassembly"
 
 # This is the commands from this module
-$Modules = Get-DevSummary -Author 'Przemyslaw Klys' -UseUrlInName -UseCache
+$Modules = Get-DevSummary -Author 'Przemyslaw Klys' -UseHTMLLinks -UseCache
 
 # Use PSWriteHTML/Dashimo to create dashboard
 Dashboard -FilePath "$PSScriptRoot\Output\EmbeddingModules.HTML" {
