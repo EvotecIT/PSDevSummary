@@ -73,9 +73,9 @@
         }
         $GitHubProject = $GitHubModules[$_.ProjectUri] | Select-Object full_name, Name, Stargazers_Count, forks_count, Open_issues, license, Language, HTML_URL, Fork, Created_At, Updated_At, Pushed_At, Archived
         if ($UseHTMLLinks) {
-            $Name = "<a href='$($_.ProjectUri)'>$($_.Name)</a>"
-            $PSGalleryURL = "<a href='https://www.powershellgallery.com/packages/$($_.Name)'>https://www.powershellgallery.com/packages/$($_.Name)</a>"
-            $GitHubURL = "<a href='$($_.ProjectUri)'>$($_.ProjectUri)</a>"
+            $Name = "<a href='$($_.ProjectUri)' target='_blank'>$($_.Name)</a>"
+            $PSGalleryURL = "<a href='https://www.powershellgallery.com/packages/$($_.Name)' target='_blank'>https://www.powershellgallery.com/packages/$($_.Name)</a>"
+            $GitHubURL = "<a href='$($_.ProjectUri)' target='_blank'>$($_.ProjectUri)</a>"
         } elseif ($UseUrlMarkdown) {
             $Name = "[$($_.Name)]($($_.ProjectUri))"
         } else {

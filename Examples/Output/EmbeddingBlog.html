@@ -1,0 +1,515 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html><!-- HEAD --><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="author"/><meta content="2020-01-05 15:16:47" name="revised"/><title>Out-HTMLView</title><!-- CSS Default fonts START --><link href="https://fonts.googleapis.com/css?family=Roboto|Hammersmith+One|Questrial|Oswald" type="text/css" rel="stylesheet"/><!-- CSS Default fonts END --><!-- CSS Default fonts icons START --><link href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" type="text/css" rel="stylesheet"/><!-- CSS Default fonts icons END --><!-- CSS Always Required Default Visual Settings START --><style type="text/css">body {
+    font-family: Roboto Condensed, Helvetica Neue, sans-serif;
+    font-size: 8pt;
+}
+
+hr {
+    height: 4px;
+    background-color: #6Cf;
+    border: 0px;
+    width: 100%;
+}
+
+.defaultSection {
+    border: 1px solid #bbbbbb;
+    padding-bottom: 0px;
+    margin: 5px;
+    width: calc(100% - 10px);
+}
+
+.overflowHidden {
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.flexParent {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+}
+
+.flexParentInvisible {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flexElement {
+    flex-basis: 100%;
+}
+
+.flexPanel {
+    flex-basis: 100%;
+}
+
+.roundedCorners {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.defaultHeader {
+    padding: 5px;
+    margin: 0px 0px 0px 0px;
+    font-weight: bold;
+}
+
+.defaultFooter {
+    padding-right: 5em;
+    text-align: right;
+}
+
+.logos {
+    display: flex;
+}
+
+.leftLogo {
+    flex-basis: 100%;
+    border: 0px;
+    padding-left: 0px;
+    vertical-align: middle;
+}
+
+.rightLogo {
+    flex-basis: 100%;
+    border: 0px;
+    padding-right: 5em;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.header {
+    background-color: #616a6b;
+    color: #f7f9f9;
+}
+
+a.alink:link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+a.alink:visited {
+    color: #ff8400;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+a.alink:hover {
+    text-decoration: underline;
+    font-size: 130%;
+}
+
+a.paginate_button {
+    color: #000000 !important;
+    font-size: 10px;
+}
+
+a.current {
+    color: #000000 !important;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+img {
+    border-radius: 5px 5px 0 0;
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+.flex-grid {
+    display: flex;
+}
+
+.col {
+    padding: 20px;
+    margin: 1%;
+    flex: 1;
+}
+</style><!-- CSS Always Required Default Visual Settings END --><!-- CSS Always Required Default Headings START --><style type="text/css">/*
+h2:after,
+h3:after,
+h4:after,
+h5:after,
+h6:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    border-radius: 2px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+
+h2:after {
+    background: #0AF;
+}
+
+h3:after {
+    background: #3BF;
+}
+
+
+h4:after,
+h5:after,
+h6:after {
+    background: #6Cf;
+}
+
+h1.white,
+h2.white,
+h3.white,
+h4.white,
+h5.white,
+h6.white {
+    color: white;
+}
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Hammersmith One', sans-serif;
+    /*
+    font-family: 'Questrial', sans-serif;
+    */
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 20px;
+    margin: 1em 0 .6em 0;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    color: #6Cf;
+    margin: 10px 10px 10px 10px;
+}
+
+h2 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 25px;
+    line-height: 20px;
+    margin: 10px 10px 10px 10px;
+}
+
+h3 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 24px;
+    line-height: 20px;
+    margin: 10px 10px 10px 10px;
+}
+
+h4 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 18px;
+    line-height: 16px;
+    margin: 10px 10px 10px 10px;
+}
+
+h5 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 10px 10px 10px 10px;
+}
+
+h6 {
+    margin: 1em 0 .6em 0;
+    padding: 0 0 0 20px;
+    font-weight: normal;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    font-size: 10px;
+    line-height: 12px;
+    margin: 10px 10px 10px 10px;
+}
+</style><!-- CSS Always Required Default Headings END --><!-- CSS DataTables START --><style type="text/css">/* Added to make sure plus logo fits in */
+td {
+    height: 27px;
+}
+
+/* Button in Table - giving it some colors */
+
+td.sorting_1::before {
+    background: #007bff !important;
+}
+
+td::before {
+    background: #007bff !important;
+}
+
+/* giving some spaces between tables being to close */
+
+div.dataTables_wrapper {
+    padding: 10px 10px 10px 10px;
+}
+
+button.dt-button {
+    color: blue !important;
+    border-radius: 5px;
+    line-height: 1 !important;
+}
+
+/* Filtering at the bottom */
+tfoot input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+
+/* Filtering at the top */
+thead input {
+    width: 100%;
+    padding: -3px;
+    box-sizing: border-box;
+    font-size: 8pt;
+}
+
+table {
+    font-size: 8pt;
+}
+</style><!-- CSS DataTables END --><noscript><!-- CSS DataTables START --><style type="text/css">table {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-collapse: collapse;
+    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
+    /* font-size: 8pt;
+      width: 99%;
+    */
+
+    box-sizing: border-box;
+    width: calc(100% - 16px);
+    margin: 8px;
+}
+
+table th {
+    border-width: 1px;
+    padding: 4px;
+    border-style: solid;
+    border-color: black;
+    background-color: #616a6b;
+    color: white;
+    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
+    /* font-size: 8pt; */
+    font-weight: bold;
+    padding: 10px;
+}
+
+table td {
+    border-width: 1px;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-style: solid;
+    border-color: black;
+    /* background-color: white; */
+    /* font-family: Roboto Condensed, Helvetica Neue, sans-serif; */
+    /* font-size: 8pt; */
+    border-top: 1px solid #ddd;
+}
+
+/* Zebra striping */
+table tr:nth-of-type(odd) {
+    background: #eee;
+}
+
+table th {
+    background: #333;
+    color: white;
+    font-weight: bold;
+}
+
+table td,
+table th {
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+</style><!-- CSS DataTables END --></noscript><!-- JS Jquery START --><script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script><!-- JS Jquery END --><!-- CSS DataTables START --><link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/autofill/2.3.4/css/autoFill.dataTables.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/colreorder/1.5.2/css/colReorder.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/fixedcolumns/3.3.0/css/fixedColumns.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/keytable/2.5.1/css/keyTable.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/rowgroup/1.1.1/css/rowGroup.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/rowreorder/1.2.6/css/rowReorder.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/scroller/2.0.1/css/scroller.dataTables.min.css" type="text/css" rel="stylesheet"/><link href="https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css" type="text/css" rel="stylesheet"/><!-- CSS DataTables END --><!-- JS DataTables START --><script src="https://nightly.datatables.net/js/jquery.dataTables.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/autofill/2.3.4/js/dataTables.autoFill.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.colVis.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/colreorder/1.5.2/js/dataTables.colReorder.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/fixedcolumns/3.3.0/js/dataTables.fixedColumns.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/keytable/2.5.1/js/dataTables.keyTable.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/rowgroup/1.1.1/js/dataTables.rowGroup.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/rowreorder/1.2.6/js/dataTables.rowReorder.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/scroller/2.0.1/js/dataTables.scroller.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" type="text/javascript"></script><script src="https://cdn.datatables.net/plug-ins/1.10.20/sorting/datetime-moment.js" type="text/javascript"></script><!-- JS DataTables END --><!-- JS DataTables PDF Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script><!-- JS DataTables PDF Features END --><!-- JS DataTables Excel Features START --><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script><!-- JS DataTables Excel Features END --></head><!-- CSS AUTOGENERATED on DEMAND START --><!-- CSS AUTOGENERATED on DEMAND END --><!-- END HEAD --><!-- BODY --><body><!-- HEADER --><header></header><!-- END HEADER --><script>                $(document).ready(function() {
+                    $.fn.dataTable.moment( 'DD.MM.YYYY HH:mm:ss' );
+                    
+                                    // Setup - Looading text input from SavedState
+                $('#DT-emWRoJcf').on('stateLoaded.dt', function(e, settings, data) {
+                    settings.aoPreSearchCols.forEach(function(col, index) {
+                        if (col.sSearch) setTimeout(function() {
+                            $('#DT-emWRoJcf tfoot th:eq('+index+') input').val(col.sSearch)
+                        }, 50)
+                    })
+                })
+                                    // Setup - add a text input to each footer cell
+                $('#DT-emWRoJcf tfoot th').each(function () {
+                    var title = $(this).text();
+                    $(this).html('<input type="text" placeholder="' + title + '" />');
+                });
+                    //  Table code
+                    var table = $('#DT-emWRoJcf').DataTable(
+                        {
+    "dom":  "Bfrtip",
+    "buttons":  [
+                    {
+                        "extend":  "copyHtml5"
+                    },
+                    {
+                        "extend":  "excelHtml5"
+                    },
+                    {
+                        "extend":  "csvHtml5"
+                    },
+                    {
+                        "orientation":  "landscape",
+                        "extend":  "pdfHtml5",
+                        "pageSize":  "A3"
+                    },
+                    {
+                        "extend":  "pageLength"
+                    }
+                ],
+    "searchFade":  false,
+    "colReorder":  true,
+    "paging":  true,
+    "scrollCollapse":  false,
+    "pagingType":  [
+                       "full_numbers"
+                   ],
+    "lengthMenu":  [
+                       [
+                           5,
+                           10,
+                           15,
+                           20,
+                           -1
+                       ],
+                       [
+                           5,
+                           10,
+                           15,
+                           20,
+                           "All"
+                       ]
+                   ],
+    "ordering":  true,
+    "order":  [
+
+              ],
+    "rowGroup":  "",
+    "info":  true,
+    "procesing":  true,
+    "select":  true,
+    "searching":  true,
+    "stateSave":  true,
+    "responsive":  {
+                       "details":  {
+                                       "type":  "inline"
+                                   }
+                   }
+}
+                    );
+                                    // Apply the search for footer cells
+                table.columns().every(function () {
+                    var that = this;
+
+                    $('input', this.footer()).on('keyup change', function () {
+                        if (that.search() !== this.value) {
+                            that.search(this.value).draw();
+                        }
+                    });
+                });
+                    
+                });</script><div class="flexElement overflowHidden"><table width="100%" id="DT-emWRoJcf" class="display compact"><thead><tr><th>Title</th><th>Date</th><th>Tags</th><th>Description</th></tr></thead><tbody><tr><td><a target="_blank" href="https://evotec.xyz/merging-splitting-and-creating-pdf-files-with-powershell/">Merging, splitting and creating PDF files with PowerShell</a></td><td>29.12.2019 17:20:33</td><td>merge-pdf,pdf,powershell,pswritepdf,split-pdf</td><td>We're in the last days of 2019, and this will be my last blog post this year. What better way to end a good year than with the release of the new&#160;PowerShell&#160;module. If the title of today's blog post isn't giving it up yet, I wanted to share a PowerShell module called&#160;PSWritePDF&#160;that can help you create and modify (split/merge) PDF documents. It joins my other&#160;PowerShell&#160;modules to create different types of documents such as&#160;PSWriteWord,&#160;PSWriteExcel,&#160;PSWriteHTML. I know that&#160;PSWriteExcel&#160;is relatively basic, but both&#160;PSWriteHTML&#160;and&#160;PSWriteWord&#160;deliver robust build capabilities.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/sending-to-microsoft-teams-from-powershell-just-got-easier-and-better/">Sending Messages to Microsoft Teams from PowerShell just got easier and better</a></td><td>22.12.2019 21:21:26</td><td>microsoft teams,office 365,powershell</td><td>Christmas time is upon us, and I've decided that my PSTeams module needs some love. I wrote it in late 2018 and updated it a few times at the beginning of 2019. This release hopefully is worth of having 1.0 version number. I don't do that often and usually go for build numbers changes only, but Microsoft Teams message cards have their limits on functionality. Therefore, there are not many things that can be added unless Microsoft opens up and gives us all the cool features of Adaptive Cards. PSTeams module uses Webconnector to send messages to Teams. That method only supports Message Cards, which even Microsoft calls Legacy. But legacy doesn't mean fully functional with some cool features of their own. If you're new to PSTeams you may want to read those 2 posts below to get information how to set it up.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/invoke-restmethod-the-underlying-connection-was-closed-an-unexpected-error-occurred-on-a-send-while-connecting-graph-api/">Invoke-RestMethod : The underlying connection was closed: An unexpected error occurred on a send while connecting Graph API</a></td><td>14.12.2019 11:01:16</td><td>invoke-restmethod,office 365,powershell,tls 1.0,tls 1.1,tls 1.2</td><td>In the last few days, I've got two reports that my PowerShell module for Office 365 Health suddenly started giving errors. This was a bit weird because it worked perfectly fine on my end. But while I could understand one person having an issue of their own, with their network or firewalls, if the second person comes along with the same report, that means something else is going on.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/getting-azure-health-parsing-html-website-using-psparsehtml/">Getting Azure Health by parsing HTML using PSParseHTML</a></td><td>08.12.2019 16:38:22</td><td>azure,azure health,powershell,psparsehtml</td><td>Some time ago I've wrote PowerShell way to get all information about Office 365 Service Health, and if you were thinking that I would try the same concept for Azure Services you were right. However, I failed. This is because Office 365 Health can be gathered using Microsoft Graph API, and Azure Health information, as far as I know, is not available in the form I wanted it. Azure Status is available as part of Azure Status website. Contrary to Office 365 health you don't have to login to your Office 365 tenant to read it.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/ainvalidauthenticationtoken-when-querying-microsoft-graph-with-powershellinvalidauthenticationtoken-when-quering-microsoft-graph-with-powershell/">Microsoft Graph – InvalidAuthenticationToken – Access token validation failure. Invalid audience</a></td><td>05.12.2019 21:25:24</td><td>microsoft graph,office 365,powershell</td><td>The post Microsoft Graph - InvalidAuthenticationToken - Access token validation failure. Invalid audience appeared first on Evotec.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/set-psrepository-installation-policy-trusted-invalid-class-error/">Set-PSRepository Installation Policy Trusted – Invalid Class Error</a></td><td>21.11.2019 16:11:48</td><td>errors,import-module,install-module,powershell,powershellget</td><td>I have to admit - executing the same command three times and expecting different results is dumb, but I still do it anyway. Fortunately, after trying three times I usually resort to other methods and try to solve the problem I have. Today while trying to trust PowerShellGallery I was greeted with an error.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/removing-user-from-local-administrator-group-based-on-data-stored-in-active-directory/">Removing user from local administrator group based on data stored in Active Directory</a></td><td>17.11.2019 21:09:21</td><td>active directory,adsi,powershell,powershell 2.0,windows 7</td><td>We need to deal with a group names through SID's rather than names because each group name is different in different languages. The second problem is to distinguish whether a user is a local or domain user. Finally, I need to connect to Active Directory to verify if the user I am about to remove has ExtensionAttribute10 (or any other field in AD) filled in or not.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/emailimo-merged-into-pswritehtml-ie-support-and-no-dependencies/">Emailimo merged into PSWriteHTML, IE support and no dependencies</a></td><td>12.11.2019 15:41:10</td><td>emailimo,ie,internet explorer,powershell,pswritehtml</td><td>If you don't know this yet, I use PSWriteHTML a lot. That means I get to test it under a lot of different conditions. I use it in reports, emails for small, medium, and large companies. Today's blog post summarizes the work I did in the last few weeks over different areas of PSWriteHTML.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/create-a-local-user-or-administrator-account-in-windows-using-powershell/">Create a local user or administrator account in Windows using PowerShell</a></td><td>30.10.2019 13:44:27</td><td>administrator,gpo,powershell,Windows</td><td>The post Create a local user or administrator account in Windows using PowerShell appeared first on Evotec.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/nested-tabs-diagram-updates-diagram-events-calendar-object-and-more-in-pswritehtml/">Nested Tabs, Diagram Updates, Diagram Events, Calendar Object and more in PSWriteHTML</a></td><td>13.10.2019 16:52:40</td><td>dashimo,html,powershell,pswritehtml</td><td>One of the new features I've worked on was connecting Diagrams with Tables. Someone suggested, and I thought it would be cool to be able to click on the Diagram node and find more details about it in a table next to it. But then I thought it would be even cooler if you could have multiple tables linked to one Diagram. For example, below, I've created two tables with Users and Computers and populated Diagram with that data.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/easy-way-to-create-diagrams-using-powershell-and-pswritehtml/">Easy way to create diagrams using PowerShell and PSWriteHTML</a></td><td>29.09.2019 17:48:32</td><td>architecture,css,dashimo,diagram,html,js,network,powershell,pswritehtml,reports</td><td>A few months ago, when I was working on PSWriteWord and PSWriteHTML, I thought to myself that in 2020 if I'll get time, I'll try to create PSWriteVisio. While I wasn't sure I would be able to make it past some concept, it was in my plans for 2020. It's still 2019 though, and while working on Testimo for Active Directory Healthchecks, I thought it would be nice to have a visual representation of network, forest schema or replication. I couldn't get this idea out of my head. I thought on using PSGraph from Kevin Marquette to generate image and import that to PSWriteHTML but it was a bit tricky and PSGraph requires external software to work - and has some additional steps for Windows, Mac or Linux.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/what-do-we-say-to-health-checking-active-directory/">What do we say to health checking Active Directory?</a></td><td>08.09.2019 17:48:39</td><td>active directory,ad,dhcp,dns,health checks,powershell,security checks,testimo,Windows</td><td>Setting up a new Active Directory is an easy task. You download and install Windows Server, install required roles and in 4 hours or less have a basic Active Directory setup. In an ideal world that would be all and your only task would be to manage users, computers, and groups occasionally creating some Group Policies. Unfortunately, things with Active Directory aren't as easy as I've pictured it. Active Directory is a whole ecosystem and works well ranging from small companies with ten users to 500k users or more (haven't seen one myself - but so they say!). When you scale Active Directory adding more servers, more domains things tend to get complicated, and while things on top may look like they work correctly, in practice, they may not. That's why, as an Administrator, you need to manage Active Directory in terms of its Health and Security. Seems easy right? Not quite. While you may think you have done everything, checked everything, there's always something missing. Unless you have instructions for everything and can guarantee that things stay the same way as you left them forever, it's a bit more complicated. That's why Microsoft delivers you tools to the troubleshoot your Active Directory, such as dcdiag, repadmin and some others. They also sell monitoring solutions such as Microsoft SCOM which can help and detect when some things happen in your AD while you were gone. Surely there are some 3rd party companies give you some tools that can help with a lot of that as well. Finally, there is lo of folks within the community creating PowerShell scripts or functions that help with some Health Checks of your Active Directory.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/making-powershellgallery-modules-portable/">Making PowerShellGallery modules Portable</a></td><td>08.09.2019 09:12:08</td><td>module,portable,powershell</td><td>I'm a big fan of PowerShellGallery. It's easy to use, Microsoft owned, a place to host your PowerShell modules. Every time I release a new PowerShell module, it's readily available for me or anyone with a single command Install-Module. No need to host it yourself, no need to prepare anything - plug &amp;#038; play. Additionally, if your PowerShell module has any dependencies, it will download and install them, so it directly works out of the box. But what if you can't use PowerShellGallery? What if you don't want to use Install-Module on 100 computers, but you prefer to do it in a more controlled way? What if your servers do not have internet connectivity?
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/comparing-two-or-more-objects-visually-in-powershell-cross-platform/">Comparing two or more objects visually in PowerShell (cross-platform)</a></td><td>25.08.2019 15:01:32</td><td>compare,dashimo,html,out-htmlview,powershell,pswritehtml,statusimo</td><td>For the last few weeks I'm working on a small project, that should be released within next few weeks (it is open source so don't worry - you'll get to play with it). This project requires me to compare two or more objects and tell if those are equal and if those aren't to what degree. Of course, PowerShell offers built-in functionality via Compare-Object command. It's mighty but it leaves comparing differences, different properties to you. While there are probably other solutions that help users compare objects, I haven't found anything that would meet my requirements. After I've written Compare-MultipleObjects function, I thought it could be interesting to implement visual comparison - you know human-readable - and I had the perfect place to apply it.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/formatting-and-minifying-resources-html-css-javascript-with-powershell/">Formatting and minifying resources (HTML, CSS, JavaScript) with PowerShell</a></td><td>11.08.2019 18:42:54</td><td>css,html,javascript,powershell,psparsehtml,pswritehtml</td><td>When you work with HTML, CSS, and JavaScript, you often meet three versions on how those are stored in files - minified, formatted, somewhere in the middle (usually a total mess).&#160;I have all three versions in my PSWriteHTML module. Some are minified 3rd party resources, some are generated by my PowerShell commands (and are a total mess when it comes to formatting), and finally, some are formatted resources by using built-in VSCode features. In whatever form they are, they generally have no impact on how browsers display them. Browsers will read them in any kind and not care for how they look.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/getting-active-directory-last-backup-time-using-powershell/">Getting Active Directory Last Backup Time using PowerShell</a></td><td>05.08.2019 14:40:18</td><td>active directory,powershell</td><td>I shouldn't be telling you that, but Active Directory Backup is an essential part of your Active Directory setup. When a backup of Active Directory happens, AD is aware of it. Following PowerShell solution allows you to get Active Directory Last Backup Time for the whole forest or by domain.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/working-with-html-in-powershell-just-got-better/">Working with HTML in PowerShell just got better</a></td><td>04.08.2019 20:04:55</td><td>css,dashimo,emailimo,html,js,powershell,pswritehtml</td><td>Last few weeks, I've been working on making creating HTML based Dashboards, Reports, and Emails better. PSWriteHTML already allows fancy looking reports or emails without much effort, but this release makes it even more helpful. I will be mixing three PowerShell modules in this blost post - PSWriteHTML (responsible for creating HTML/CSS/JS code), Emailimo (simplifies creating emails based on PSWriteHTML) and Dashimo (simple dashboard building). If you've never heard of those modules before I encourage you to start from earlier blogs about them to understand the concepts before you dive into this one.&#160; Hopefully, those will give you some ideas that will match what you will learn today.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/testing-ldap-and-ldaps-connectivity-with-powershell/">Testing LDAP and LDAPS connectivity with PowerShell</a></td><td>04.08.2019 16:55:32</td><td>active directory,ldap,powershell</td><td>One of the common ways to connect to Active Directory is thru LDAP protocol. There are a lot of applications that talk to AD via LDAP. By default Active Directory has LDAP enabled but that's a bit insecure in today's world. That's where LDAPS comes in. It's not easy to set up, but when you get it done, it works. The problem I had recently is that while setting up LDAPS on DC's I only did this on some of the DC's, and not all of them as I should.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/active-directory-instant-replication-between-sites-with-powershell/">Instant Replication between Active Directory sites with PowerShell</a></td><td>21.07.2019 15:31:06</td><td>active directory,ad,instant replication,powershell,replication</td><td>In Active Directory when you change something, it's replicated to other Domain Controllers regularly. It's a standard procedure that happens automatically in the background for you. It's a handy feature because you can have multiple DC's all over the world and have your users data in sync. You can change almost anything on DC nearest to you and be sure it will be the same value all over the place. But is it always the same? Well, it should be unless it isn't. Today I was given a new migration from&#160; Exchange to Office 365. I started with ADConnect installation and wanted to make sure that UserPrincipalNames have all UPNSuffixes in place.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/executing-hidden-or-private-functions-from-powershell-modules/">Executing hidden or private functions from PowerShell Modules</a></td><td>14.07.2019 18:15:59</td><td>hidden,powershell,powershell module</td><td>When you write PowerShell modules, there's a high chance you will have conflicts with either existing system commands (you should avoid that) or with someone else's modules. There are also times when someone wants to use a private function from a module that only exports essential functions. Here's a couple of ways how to deal with those scenarios.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/using-lansweeper-with-powershell-to-your-advantage/">Using Lansweeper with PowerShell to your advantage</a></td><td>14.07.2019 16:23:17</td><td>dbatools,lansweeper,powershell,reporting,sql,user reports</td><td>I'm on a tight deadline for one of the chapters for PowerShell Conference Book vol. 2. That means my brain wants me to do a lot of different things but writing that chapter. I've decided to write this simple PowerShell command that allows me to use Lansweeper in PowerShell. If you never heard of Lansweeper, it's a great inventory tool that can scan Windows, Linux, Network, Printers, and other types of assets gathering it all in SQL Database. Usually, you would use their friendly, fast interface to access data it stores because it offers a lot of flexibility, export options, and many many features.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/getting-bitlocker-and-laps-summary-report-with-powershell/">Getting Bitlocker and LAPS summary report with PowerShell</a></td><td>11.07.2019 19:07:22</td><td>active directory,ad,bitlocker,laps,powershell</td><td>Having Bitlocker and LAPS in modern Active Directory is a must. But just because you enable GPO and have a process that should say Bitlocker and LAPS are enabled doesn't mean much. Now and then you should verify things yourself. One of the Facebook users on PowerShell group just had this idea of exporting Bitlocker keys and then giving that list to his colleagues for manual verification. He wanted to do it half PowerShell and half manually. While the idea was great, why not take full advantage of PowerShell and have a helpful report with all the necessary information?
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/sending-html-emails-with-powershell-and-zero-html-knowledge-required/">Sending HTML emails with PowerShell and zero HTML knowledge required</a></td><td>11.07.2019 09:24:21</td><td>Altaro,dashimo,email,emailimo,html,powershell,pswritehtml</td><td>I saw this article by Altaro tweeted Building PowerShell Tools for MSPs: HTML Tables for Reporting, and it describes how you can create HTML emails with just a few lines of code. Luke created that article in 2018 (tweets from the archive I guess), but I just saw it now so thought I would make a slight comparison. In 2018 I would probably go the same way as shown by Luke Orellana, who takes a simple example of querying WMI to get disk drive sizes and send them over, formatted via Email.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/all-your-html-tables-are-belong-to-us/">All your HTML Tables are belong to us</a></td><td>28.06.2019 18:35:13</td><td>dashimo,html,javascript,powershell,pswritehtml</td><td>Last few days, I've fulfilled my little dream related to building HTML tables. You know I've been using HTML based scripts for a long while for Microsoft Exchange from multiple people like Steve Goodman or Paul Cunningham (and others) and when I was going thru their PowerShell building code on how they create an HTML table with multi-row titles I thought Those guys are crazy. The effort to build an HTML table for a report for a person who has no clue how to do it is not something one can easily digest and understand. Sure I've learned how to build HTML tables at some point, but there was one final piece that I was missing - multi-row headers. If you don't know what I mean, and how they look like the below image from Steve's Goodman script should give you a hint.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/fixing-active-directory-passwordnotrequired-with-powershell/">Fixing Active Directory PasswordNotRequired with PowerShell</a></td><td>25.06.2019 12:29:44</td><td>active directory,ad,PasswordNotRequired,powershell</td><td>There was I, deploying PSPasswordExpiryNotifications for one of my Clients when I started getting complaints that some users are not getting their Password Expiry Notifications. Well, that's a new one. I've tested this script multiple times, and it worked just fine. So I dive into the details of my script to see what I did in there (I don't even remember anymore - it just works) to find out this little line:
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/export-clixml-and-import-clixml-serialization-woes/">Export-CliXML and Import-CliXML serialization woes</a></td><td>23.06.2019 12:12:27</td><td>Active Directory,export-clixml,import-clixml,powershell</td><td>I've been working today trying to deliver to one of my Clients Active Directory documentation. To my surprise, something that worked fine for a very long time has started to provide weird results. So, after spending about 8 hours taking apart a few of my PowerShell modules trying to find out what is wrong finally, I've found it: Export-CliXML / Import-CliXML. Those two commands are great. I've used them multiple times with great success (or so I thought).
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/dashimo-pswritehtml-charting-icons-and-few-other-changes/">Dashimo (PSWriteHTML) – Charting, Icons and few other changes</a></td><td>17.06.2019 12:46:20</td><td>css,dashimo,html,javascript,js,powershell,pswritehtml</td><td>A few months ago when I first released Dashimo, I've promised that Charts will come. Unfortunately, time passed by, and there were no Charts in sight. It's not that I didn't want to deliver, I just wasn't sure on the way I want to allow charts building. Today after playing with the idea for a while I've decided to release essential support for diagrams, with a couple of other fixes. Some of that stuff is already there for longer while I just never announced it. There are probably a lot of other hidden gems you may find if you explore PSWriteHTML or Dashimo.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/getting-windows-10-build-version-from-active-directory/">Getting Windows 10 build version from Active Directory</a></td><td>14.06.2019 17:03:06</td><td>active directory,build,powershell,windows 10</td><td>Today I saw an article on how to get Windows Version Report from Active Directory&#160;and thought that this is a cool idea. Something handy for migration scenarios or information on how up to date is your infrastructure. Since there are many ways to do the same thing I decided to tackle this myself and further include it into PSWinDocumentation.AD&#160;project. By default Active Directory stores Operating System and Operating System Version but it doesn't really show versions one may expect.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/install-module-the-install-module-command-was-found-in-the-module-powershellget-but-the-module-could-not-be-loaded/">Install-module : The ‘install-module’ command was found in the module ‘PowerShellGet’, but the module could not be loaded.</a></td><td>30.05.2019 10:24:14</td><td>import-module,install-module,powershell,powershellget</td><td>I've been working last few hours trying to set up my laptop for PowerShell Conference, and one of the tasks is to get my modules up and running. To my surprise on Windows 10 1903 Install-Module thrown a weird error
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/how-i-didnt-know-how-powerful-and-fast-hashtables-are/">How I didn’t know how powerful and fast hashtables are</a></td><td>19.05.2019 11:49:26</td><td>active directory,hashtable,learn,powershell,speed</td><td>I've been using PowerShell for a long while now using Hashtables, OrderedDictionary, and other types of data types in PowerShell, but I never paid attention to how powerful those are. And I don't mean your general knowledge about hashtables that is already covered by Kevin Marquette in his article Everything you wanted to know about Hashtables or my article PowerShell – Few tricks about HashTables and Arrays I wish I knew when I started. Let's find out, how Powerful they are, shall we?
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/what-do-we-say-to-writing-active-directory-documentation/">What do we say to writing Active Directory documentation?</a></td><td>12.05.2019 14:46:24</td><td>Active Directory,dashimo,documentation,documentimo,excel,excelimo,powershell,pswindocumentation,Windows,word</td><td>It's no secret that nobody likes creating documentation. I don't like it, and you don't like it, even documentation lovers don't like it. But while you can live without documentation, you really shouldn't. And I am not talking here only about documentation that is only useful in the onboarding process of new employees or documentation concerning introducing someone to some concepts to get them easily start. I'm talking about documentation for your live environment where you know what you have, how you have set it up, but is still the same after one week, one month, or one year? Usually, not so much. And one of the worst mistakes admin can do is assume that his environment doesn't change, things are as they were when they were set up.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/the-only-powershell-command-you-will-ever-need-to-find-out-who-did-what-in-active-directory/">The only PowerShell Command you will ever need to find out who did what in Active Directory</a></td><td>28.04.2019 17:52:32</td><td>active directory,ad,events,events viewer,powershell,pswinreporting,pswinreportingv2,Windows</td><td>While the title of this blog may be a bit exaggeration, the command I'm trying to show here does it's best to deliver on the promise. What you're about to witness here is something I've worked on for a while now, and it meets my basic needs. If you don't have SIEM product or products that monitor who does what in Active Directory this command makes it very easy, even for people who don't have much experience in reading Event Logs. If you'd like to learn about working with Windows Event Logs here's a great article I wrote recently - PowerShell - Everything you wanted to know about Event Logs and then some.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/does-having-format-table-or-format-list-in-the-middle-of-the-pipeline-makes-sense/">Does having Format-Table or Format-List in the middle of the pipeline makes sense?</a></td><td>24.04.2019 22:03:02</td><td>Format-List,Format-Table,powershell</td><td>Recently there was this discussion on PowerShell Group on Facebook about issue posted by one user. While the subject doesn't matter for this post, few people commented on the idea that he was using Format-Table in the middle of the pipeline to do something. They all said Format-Table should be used as last in the pipeline. Otherwise, you would get the wrong output. But should it? Well, it depends!
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/the-curious-case-of-null-should-be-on-the-left-side-of-equality-comparisons-psscriptanalyzer/">The curious case of $null should be on the left side of equality comparisons PSScriptAnalyzer</a></td><td>24.04.2019 15:29:42</td><td>$null,powershell,PSScriptAnalyzer</td><td>If you're using VSCode with Powershell extension, you probably got used to PSScriptAnalyzer giving you all kind of tips on optimizing things. It makes your code better. Chris Bergmeister does a great job working on it. One of the tips PSScriptAnalyzer gives you when you use $null on the right side of the comparison.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/preparing-azure-app-registrations-permissions-for-office-365-health-service/">Preparing Azure App Registrations permissions for Office 365 Service Health</a></td><td>22.04.2019 18:25:02</td><td>azure,health,office 365,powershell</td><td>As you may have seen in my other post, there's a simple, PowerShell way to get Office 365 Health Service data for you to use any way you like it. But before you can use that, you need to register granular permissions on your Office&#160; 365 tenant so that that data is provided to you. Here's a step by step way to do it.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/powershell-way-to-get-all-information-about-office-365-service-health/">PowerShell way to get all information about Office 365 Service Health</a></td><td>22.04.2019 18:24:43</td><td>Azure,health,Office 365,powershell,pswindocumentation</td><td>Office 365 is an excellent cloud service. But like any service, there's some infrastructure behind it that has to be cared for. Since this is Cloud, Microsoft does this for you. But any problems Microsoft has to have some impact on your end users. And you may want to have that visibility for your users. Microsoft provides this to Admins when they login to the portal, but while useful you may want to use that data in other ways than those planned by Microsoft.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/meet-emailimo-new-way-to-send-pretty-emails-with-powershell/">Meet Emailimo – New way to send pretty emails with PowerShell</a></td><td>12.04.2019 10:13:43</td><td>css,emailimo,html,javascript,js,Linux,Mac OS X,mailing,outlook,PowerShell,pswritehtml,send-email,send-mail,Windows</td><td>When reading this blog post, you may be thinking that there's nothing new one can add to emailing with PowerShell as there were tons of articles in recent years covering this subject pretty good. It's all known, and people have used it since the early days of PowerShell. You can even send an email with just one line using Send-MailMessage. Now, this post is not about that. This post is about sending HTML based emails. You see when you want to send an email that is just text based that's pretty trivial. Things get complicated when you want your emails to have some colors, some tables, some links or some lists. This is where you have to involve HTML and CSS. Since I've been working with PowerShell for a while now, I've seen my share of scripts/modules or blog posts that cover this but one thing that usually hit me - it was sometimes tough to understand what is happening, what the author is doing, and what happens if I change this or that. While I've seen people dismissing programmers doing HTML / CSS or JavaScript for not being real programmers, I disagree entirely. You have to know what you're doing if you want your stuff to look good. I've spent days or even weeks playing with HTML/CSS/JS, and I must admit half of what I do I don't even understand until I see the output. So before you go and tell people that HTML/CSS is easy, think again.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/out-htmlview-html-alternative-to-out-gridview/">Out-HtmlView – HTML alternative to Out-GridView</a></td><td>06.04.2019 20:47:55</td><td>cross-platform,Mac OS X,PowerShell,powershell 6,powershell 7,powershell core,Ubuntu,Windows</td><td>One of the most comfortable output's in PowerShell to work and analyze data is Out-GridView. It's handy as you can search, sort and have things done quicker than trying to do things in the console. However it's currently not available in PowerShell Core (PowerShell 6+), and when it is available in PowerShell 7, it will NOT be cross-platform.&#160; Since I had released Dashimo a few days ago, I thought it was trivial to make a simple command out of it that could solve this problem.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/dashimo-easy-table-conditional-formatting-and-more/">Dashimo – Easy Table Conditional Formatting and more</a></td><td>04.04.2019 22:17:24</td><td>dashimo,powershell,pswritehtml,reporthtml</td><td>Dashimo ultimate goal is to be as easy to use as possible. With the introduction of it a few days ago I made a promise to myself that I want to keep it as simple to use as possible. If you don't know what Dashimo is, have a read here - Meet Dashimo. When I posted it on Reddit few people had some ideas and feature request that would make it a bit nicer, and when I heard about I agreed. So today, after a couple of days I have a few updates. I also noticed that my examples might have been too hard to use and understand for beginners and people not having a lot of touch with Active Directory. This time all code you can find below will use&#160;Get-Process as a way to show you that you can use any output that comes as a Table.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/meet-dashimo-powershell-generated-dashboard/">Meet Dashimo – PowerShell Generated Dashboard</a></td><td>01.04.2019 21:45:38</td><td>css,dashboard,dashimo,html,javascript,powershell,statusimo</td><td>Today I wanted to introduce a little product that I've created in the last few weeks called Dashimo. It doesn't cover everything I wanted from it (feature wise), but it already can be used in production. Therefore, I thought it would be a good idea to get some feedback on whether I should spend some more time on it or throw it in the dumpster. Dashimo joins it's older brother Statusimo of PowerShell modules allowing an easy way to build HTML output. If it will feel familiar, it's because it was inspired with Bradley Wyatt PowerShell script he did. It gave me the idea of how I would like to build something similar but in a bit different way then he did, with much more flexibility. Still, if it wasn't for him, the idea wouldn't be there, therefore you should send him your thanks.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/backing-up-bitlocker-keys-and-laps-passwords-from-active-directory/">Backing up Bitlocker Keys and LAPS passwords from Active Directory</a></td><td>31.03.2019 22:01:43</td><td>active directory,bitlocker,laps,powershell</td><td>Having a modern, secure infrastructure in 2019 is a requirement. You should implement BitLocker to make sure that in the event of stolen laptop data is not readily extractable and implementing LAPS is a must in a fast changing IT world. But I'm not here to convince you to those two security features. I'm here to show you an easy way to backup LAPS and BitLocker. While having everything stored in Active Directory is excellent, things can get complicated when you don't have access to your Active Directory, or you restore an older version of it. You see, LAPS, for example, keeps only last Administrator password. This is great and all but what happens if you restore the machine from backup from 6 months back? Your password has already changed multiple times. During our testing of DR scenarios, we wanted to access the computer via their local Administrator credentials and we just couldn't because that password was already gone.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/creating-visual-indicators-for-spoofed-external-emails-with-powershell/">Creating Visual Indicators for spoofed / external emails with PowerShell</a></td><td>30.03.2019 22:28:27</td><td>exchange,exchange 2013,exchange 2016,exchange online,office 365,powershell</td><td>I've been managing mail service for users for a lot of years now. I don't do it daily but I've spent my fair share of time analyzing spam emails. Mail vendors are doing what they can fighting spam, but it's not easy. Each month, each year spam is getting more sophisticated. Spam emails either look like a legit email, or worse someone is targeting your company trying to get them to transfer money into a wrong account. While most of those end up in spam, there are those that come thru. It's even worse if the company you work with has not implemented SPF or their SPF is configured to soft fail which can't be treated as spam.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/accessing-azurevm-with-nla-and-broken-domain-trust-relationship/">Accessing AzureVM with NLA and broken domain trust relationship</a></td><td>28.03.2019 09:22:42</td><td>Active Directory,ad trust,Azure,azure vm,nla,powershell</td><td>Hosting your VM's in Azure Cloud is excellent. You have all those features, professionally managed and virtually limitless. I don't want to take your time to sell you Azure Services but to share a solution to one of the things I had to solve in Azure and sooner or later you may end up with on. During the test restore for Active Directory and multiple other machines which were much older (or newer) then Active Directory Domain Controller that was restored it turned out one can't log in to most of the devices. First of all your domain password is already changed, but that can quickly be addressed. Your second and more significant problem is Network Level Authentication (NLA), and your 3rd problem is broken trust relationship.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/active-directory-the-directory-service-was-unable-to-allocate-a-relative-identifier/">Active Directory – The directory service was unable to allocate a relative identifier</a></td><td>27.03.2019 20:39:25</td><td>active directory,ad,error,powershell</td><td>I've been testing Disaster Recovery scenario restoring Active Directory. One of the servers was restored, and it worked for a moment after restore. If you can regain your Primary DC, it's best to do so. If you can't, a standard thing to do during DR is to move all FSMO roles to the restored server so that it can become a master server. You can find out your FSMO holders by using those commands below:
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/powershell-changing-exchange-folder-permissions-in-multilanguage-office-365-tenants/">Changing Exchange folder permissions in multilanguage Office 365 tenants</a></td><td>22.03.2019 18:58:49</td><td>exchange,exchange online,Office 365,powershell,room mailbox</td><td>One of the tasks I often get when setting up new Office 365 tenant or installing Exchange Servers is to change the visibility of Room Mailboxes or in some cases even standard users. There's nothing hard about it, and there are plenty of articles about it. It's just three simple steps.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/powershell-fix-to-ubiquiti-unifi-requirement-for-mongodb-3-6-on-ubuntu/">Using PowerShell to fix Ubiquiti Unifi requirement for MongoDB 3.6 on Ubuntu 18</a></td><td>11.03.2019 21:31:14</td><td>linux,mongodb,powershell,Ubuntu,ubuntu 18.04,unifi</td><td>I've been using Ubiquiti Unifi for some years now, for both home and work usage. It's great hardware at a great price, and the best thing for a software maniac like me is that it's continuously updated. Some time ago I upgraded Ubuntu to 18.04, and things went a bit sideways. You see Unifi started to add to their DEB packages that Mongo 3.6 is not supported and therefore blocking any installation. The idea is, it works perfectly fine on MongoDB 3.6 but migration between 3.4 to 3.6 is just not straightforward. Long story short when I upgraded Ubuntu I was suddenly greeted with not working Unifi.&#160; I've fixed that, and blogged about it how you can do so using manual steps -&#160;Ubuntu 18.04 – Fixing Unifi .deb package to run with 3.6 MongoDB. The thing is with each new version out I have to do multiple steps to fix every single package from Unifi (you see where I'm going right?). While a few years ago I would be stuck to use bash or some other workaround which would be a pain for me, this is 2019, and PowerShell Core works excellent on Linux systems! I know that installing PowerShell Core for hardcore Linux fans may not be as fun as it is for me, but you do get a lot of benefits from it.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/pswinreporting-1-8-split-of-branches-legacy-vs-new-hope/">PSWinReporting 1.8 – Split of branches (Legacy vs. New Hope)</a></td><td>10.03.2019 20:39:43</td><td>Active Directory,event,event monitoring,events,PowerShell,pswinreporting,Windows</td><td>A new branch of PSWinReporting is slowly coming, and I thought it would be the best time to have a final article about it with all configuration options available for those that will want to stay using PSWinReporting from Legacy branch. The idea is that you may have it working in your systems and it's good enough for you. You may not want to change it, and with New Hope,  the changes are so big it's a rewrite.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/powershell-returning-one-object-from-function-as-an-array/">PowerShell – Returning one object from a function as an Array</a></td><td>08.03.2019 10:11:31</td><td>array,foreach,foreach-object,goot-to-know,powershell</td><td>Few weeks had passed since I've initially written PowerShell – Few tricks about HashTables and Arrays I wish I knew when I started. I was happily using my tips and tricks myself till today when I noticed a strange problem. Do you know how I showed you that you could use a comma to return Array with just one member (that otherwise would be unwrapped and end up a string)?
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/meet-statusimo-powershell-generated-status-page/">Meet Statusimo – PowerShell generated Status Page</a></td><td>06.03.2019 17:45:52</td><td>css,html,javascript,powershell,status page,statusimo</td><td>A few weeks ago, Mateusz Czerniawski, mentioned that he wants to build a Status Page for his company services. While I haven't needed for myself, it seems like an excellent idea to try and create one in PowerShell. Since I've been working on PSWriteHTML for a while, it wasn't that far fetched idea. While PSWriteHTML has a long way to go, to be in a state I want it to be, after a few days I had a prototype that didn't require much work to generate. If you're wondering what Status Page is it's a little summary page for your users to check what is the status of services they use. It has been popular in the last few years and is offered by many services (Twitter, GitHub, Office 365 - they all have it). Companies are selling it as a service as well where you can host your status page for your users. This one is free.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/hyper-v-cant-start-virtual-machine-because-its-backing-up/">Hyper-V – Can’t start Virtual Machine because it’s backing up</a></td><td>25.02.2019 21:29:14</td><td>backup,error,hyper-v,powershell</td><td>Working as a small business often brings you little tasks here and there. Today I've decided to shut down the Hyper-V machine to expand its disks. Unfortunately for me, while extending of HDD went great, I couldn't start Virtual Machine any longer.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/powershell-everything-you-wanted-to-know-about-event-logs/">PowerShell – Everything you wanted to know about Event Logs and then some</a></td><td>20.02.2019 13:22:19</td><td>Active Directory,event logs,events,get-eventlog,get-winevent,microsoft window,PowerShell,windows,windows server</td><td>If you feel this title is very familiar to you it's because I actually&#160;have stolen the title from Kevin Marquette. I'm in awe of his posts that take you thru topic from beginning till the end. No splitting, no hiding&#160;anything, everything on a plate, in a single post. That's why I've decided to write a post that will take you on a trip on how to work with&#160;Event Logs,&#160;something that is an internal part of Windows Administration. If you've never worked with Events and you're in IT you most likely should make an effort to find out what it is and how you can eat it.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/powershell-few-tricks-about-hashtable-and-array-i-wish-i-knew-when-i-started/">PowerShell – Few tricks about HashTables and Arrays I wish I knew when I started</a></td><td>18.02.2019 15:52:59</td><td>array,arraylist,genericlist,hashtable,powershell,tricks</td><td>I've been working with PowerShell for a while now and like with most things I do I've learned it by doing and not by reading. I had a job to do, and since I don't like doing things over and over, I thought it's time to learn and do it in PowerShell. Problem with that approach is that you take bits and pieces from PowerShell scripts online that sometimes do the job but not necessarily pay attention to details. And it's fine. I've learned a lot from reading someone else's&#160;work, and I learn something new every day. Hopefully, it will be useful to you to some extent.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/bittitan-migrationwiz-the-selected-mailboxes-cannot-be-subscribed/">Bittitan MigrationWiz – The selected Mailboxes cannot be subscribed</a></td><td>14.02.2019 21:10:28</td><td>bittitan,Exchange,exchange online,office 365</td><td>Recently I'm doing yet another migration between Office 365 tenants using Bittitan Migration Wizard. It's a great tool and takes away a lot of headaches when dealing with the migration of mailboxes or OneDrive data. Unfortunately, like with many blogs on my website I had to hit yet another error. This time error occurred when I tried to assign User Migration Bundle license to users on the Migration Wizard.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/how-to-find-different-server-types-in-active-directory-with-powershell/">How to find different server types in Active Directory with PowerShell</a></td><td>06.02.2019 18:25:30</td><td>active directory,ad,adconnect,Azure AD,exchange,Hyper-V,powershell,sql,windows</td><td>Working as a freelancer is a great thing if you can handle it. Each day, each week something new happens and a new problem shows up on my doorstep. It also means it's almost never boring at your job and you get to play with new stuff. But there's one drawback to this. You're often thrown at the problem, told to fix it but often that's about as much information as you get. It wasn't very different today. I was told to switch Office 365 from ADFS to Password Synchronization. While reasons for this are not really important, the important question here is what is the name of AD Connect server that's responsible for this configuration?
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/a-short-story-on-powershell-hashtables-that-beat-me-hard/">A short story on PowerShell HashTables that beat me hard</a></td><td>03.02.2019 20:29:09</td><td>PowerShell,powershell hashtable,pscustomobject</td><td>Today's story happened&#160;a few days back to me, and I think many people may not even know about some object behaviors in PowerShell (just like me). I know some of you may think this is basic PowerShell knowledge but even thou I've written a lot of different PowerShell modules I kind of skipped basics. That means I often find myself struggling with something that's obvious if you've done your due diligence&#160;before starting to work with the code. But that's typical me, playing with complicated stuff, failing at simple things.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/office-365-report-containing-user-information-and-mailbox-usage/">Office 365 – Report containing User Information and Mailbox Usage</a></td><td>29.01.2019 15:30:04</td><td>exchange,exchange online,msol,office 365,powershell</td><td>Working with Office 365 is my bread and butter in the last few months. I'm a System Architect and I am dropped in multiple projects, both new and old, to fix certain aspect and get out before anyone sees me. One of the common tasks I get is to provide some data about users stored in Office 365.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/active-directory-how-to-track-down-why-and-where-the-user-account-was-locked-out/">Active Directory – How to track down why and where the user account was locked out</a></td><td>24.01.2019 15:25:31</td><td>active directory,event viewer,get-events,get-winevent,powershell,pseventviewer,pswinreporting,windows,windows server</td><td>I've been working with Windows Events for a while now. One of the things I did to help me diagnose problems and reporting on Windows Events was to write PSEventViewer to help to parse the logs and write&#160;PSWinReporting to help monitor (with use of PSEventViewer) Domain Controllers for events that happen across the domain. It's handy and I, get those excellent daily reports of what happened while I was gone.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/how-to-change-your-own-expired-password-when-you-cant-login-to-rdp/">How to change your own expired password when you can’t login to RDP</a></td><td>23.01.2019 10:41:40</td><td>expired password,powershell,rdc,rdp,remote desktop connection,remote desktop protocol,windows</td><td>I must admit that it was a bit embarrassing&#160;to see my Administrator password expired when I tried to log in as Domain Admin to Domain Controller. I got this little message&#160;saying This user account's password has expired. The password must change in order to logon. Please update the password or contact your system administrator or technical support.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/windows-server-2019-desktop-path-for-all-users-cwindowssystem32configsystemprofiledesktop/">Windows Server 2019 – Desktop path for all users redirected to System32 \ SystemProfile \ Desktop</a></td><td>22.01.2019 14:31:49</td><td>ransomware,windows,windows 2019,windows server</td><td>The post Windows Server 2019 - Desktop path for all users redirected to System32 \ SystemProfile \ Desktop appeared first on Evotec.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/windows-2019-windows-license-expired/">Windows 2019 – Windows License Expired</a></td><td>19.01.2019 19:31:08</td><td>expired license,license,Windows,windows 2019,windows server,windows server 2019</td><td>Windows Server 2019 is out now for a couple of months now, and some of you may be interested in playing with it. When you first install it, you can test it for 180 days (so-called&#160;Grace Period) after which you need to activate it with a proper production license.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/sixteen-powershell-modules-that-ive-worked-on-in-2018/">PowerShell modules I worked on in 2018</a></td><td>06.01.2019 17:39:32</td><td>module,PowerShell,powershellgallery,windows</td><td>We're a few days in 2019, and from a time perspective, I can say I had a busy 2018. I must say I've never expected that but in 2018 I've created or worked on 24&#160;PowerShell modules. Some were simpler ones, some were a bit more advanced, and some will be retired in 2019 because their features will be moved&#160;to other modules.&#160;In PowerShellGallery alone those were downloaded over 15000 times (I must admit that some of those are surely automated tests - "Hello Pester" that I've learned in 2018. It's&#160;a nice number thou, and something I'm kind of proud of myself. After all, before 2018 I've not created a single PowerShell module before. Sure, I've created a bunch of scripts, hardcoded, that did the task that I had to solve. But I've never before built something, that could be installed by one little command&#160;Install-Module&#160;(something I've learned in 2018 as well) and executed by anyone, anywhere. I know the title says Sixteen PowerShell Modules but some modules are just too simple to give them anything else than a small mention.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/active-directory-move-addirectoryserveroperationmasterrole-access-is-denied/">Active Directory – Move-AD Directory Server Operation Master Role: Access is denied</a></td><td>06.01.2019 09:10:18</td><td>active directory,fsmo,powershell</td><td>When working with Active Directory one of the common tasks is to move FSMO roles between servers. Well, maybe not that common but it happens from time to time where you have to move all or just some of the FSMO roles. For that purposes, there is single&#160;PowerShell command&#160;Move-ADDirectoryServerOperationalMasterRole.&#160;Sure you can do this via GUI but if there's one command available to fix it all why bother? To make the move one has to be a Domain Admin, Enterprise Admin and Schema Admin.&#160;Everything was going smoothly for some roles but wasn't working for others.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/a-command-with-name-is-already-available-on-this-system-this-module-may-override-the-existing-commands/">A command with name is already available on this system. This module may override the existing commands.</a></td><td>02.01.2019 19:37:18</td><td>module,powershell</td><td>Another day, another issue one may say. Today I wanted to install one of my modules to a new server and was greeted&#160;with a well-known message (it may seem on first look):
+A command with name '' is already available on this system. This module 'PSEventViewer' may override the existing commands. If you still want to install this module 'PSEventViewer', use -AllowClobber parameter.
+</td></tr><tr><td><a target="_blank" href="https://evotec.xyz/windows-2019-how-to-add-language-pack/">Windows 2019 – How to add language pack?</a></td><td>02.01.2019 13:38:16</td><td>windows,windows server,windows server 2019</td><td>Today I've been setting up a new server on Windows 2019. By default, I install Windows with English version even if Client works in their language such as German, Polish or Swedish. While some people install Windows in a language they desire to work with, years of experience taught me that installing English and then adding Language Pack is the best way to go. All errors, windows events, and general troubleshooting is much easier if those are in the native English&#160;language. Each version of Windows made it easier to install the language pack and have that up and running in no time. In Windows 2019 it's even more comfortable... or is it?
+</td></tr></tbody><tfoot><tr><th>Title</th><th>Date</th><th>Tags</th><th>Description</th></tr></tfoot></table></div><footer><!-- FOOTER --><!-- END FOOTER --></footer><!-- END BODY --></body></html>
