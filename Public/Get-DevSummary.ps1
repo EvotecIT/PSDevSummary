@@ -8,7 +8,7 @@
         [string] $PathModulesHTML = "$Env:USERPROFILE\Desktop\MyModules.HTML",
         [switch] $UseCache,
         [switch] $UseHTMLLinks,
-        [switch] $UseUrlMarkdown,
+        [switch] $UseMarkdown,
         [switch] $ReturnDetails
     )
     if ($UseCache -and (Test-Path -LiteralPath $PathModules)) {
@@ -76,7 +76,7 @@
             $Name = "<a href='$($_.ProjectUri)' target='_blank'>$($_.Name)</a>"
             $PSGalleryURL = "<a href='https://www.powershellgallery.com/packages/$($_.Name)' target='_blank'>https://www.powershellgallery.com/packages/$($_.Name)</a>"
             $GitHubURL = "<a href='$($_.ProjectUri)' target='_blank'>$($_.ProjectUri)</a>"
-        } elseif ($UseUrlMarkdown) {
+        } elseif ($UseMarkdown) {
             $Name = "[$($_.Name)]($($_.ProjectUri))"
         } else {
             $Name = $_.Name
@@ -118,5 +118,9 @@
         $AllModulesDetails | Export-Clixml -LiteralPath $PathModuleDetails -Depth 5
         $GitHubModules | Export-Clixml -LiteralPath $PathGitHub -Depth 5
     }
-    $Objects
+    if ($UseMarkdown) {
+        $Objects | Select-Object 'Name', 'Github Stars', 'Download CountTotal', 'Download CountLast', 'Releases Total', "Releases CurrentYear ($Year)", "Releases LastYear ($LastYear)" | ConvertTo-Markdown
+    } else {
+        $Objects
+    }
 }

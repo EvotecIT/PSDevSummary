@@ -34,7 +34,7 @@
         [Parameter(Mandatory, Position = 0, ValueFromPipeline)][PSObject[]]$collection
     )
     Begin {
-        $Items = [System.Collections.Generic.List[string]]::new()
+        $Items = [System.Collections.Generic.List[Object]]::new()
         $columns = [ordered] @{ }
     }
     Process {
@@ -59,19 +59,19 @@
         $header = ForEach ($key in $columns.Keys) {
             ('{0,-' + $columns[$key] + '}') -f $key
         }
-        $($header -join ' | ')
+        -join ('| ', $($header -join ' | '), ' |')
 
         $separator = ForEach ($key in $columns.Keys) {
             '-' * $columns[$key]
         }
-        $($separator -join ' | ')
+        -join ('| ', $($separator -join ' | '), ' |')
 
 
         ForEach ($item in $items) {
             $values = ForEach ($key in $columns.Keys) {
                 ('{0,-' + $columns[$key] + '}') -f $item.($key)
             }
-            $($values -join ' | ')
+            -join ('| ', $($values -join ' | '), ' |')
         }
     }
 }
